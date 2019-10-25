@@ -1,20 +1,25 @@
 import React from 'react';
-import { BrowserRouter, HashRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
-import Home from "./home/home";
-import About from "./about/about";
-import Contact from "./contact/contact";
-
+import {Home} from "./components/Home";
+import About from "./components/about";
+import Contact from "./components/contact";
+import logo from "./img/ford-logo.png";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ul className="meunu">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/example">Example</Link></li>
-        </ul>
+        <div class="nav">
+          <div className="navParentLogo">
+              <img src={logo} class="navLogo"/>
+          </div>
+          <div className="navMeunu">
+              <div><Link to="/">Home</Link></div>
+              <div><Link to="/about">About</Link></div>
+              <div><Link to="/contact">Contact</Link></div>
+              <div><Link to="/example">Example</Link></div>
+          </div>
+        </div>
 
         <Switch>
           <Route exact path='/' component={Home} />
@@ -28,7 +33,7 @@ function App() {
           }} />
         </Switch>
       </BrowserRouter>
-    </div>
+  </div>
   );
 }
 

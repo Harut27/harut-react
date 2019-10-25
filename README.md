@@ -69,3 +69,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 <!-- DESTRUCTURING -->
 <!-- Деструктуризация -->
+<!--  CLASS COMPONENT -->
+<!--  FUNCTIONAL COMPONENT -->
+<!-- STATE , PROPS -->

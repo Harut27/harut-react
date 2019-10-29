@@ -1,33 +1,26 @@
-import React from 'react';
+import React, {
+  Component
+} from 'react';
 import "./style.scss";
+import NavbarLink from "./components/navbar-link";
 
-function App() {
-  let links = ["home","about","contact us","sign in"];
-  return (
-    <div className="App">
-        { 
-          links.map((link,i) => {
-            return <NavbarLink key={i.toString()} name={link} />        
-          })
-        }
-    </div>
-  );
+
+class App extends Component {
+
+  render(){
+      let nav = ['Home', 'About',"Contact","Sign IN"]
+
+    return (
+      <div className="navbar">
+          {nav.map((navbarLink)=>{
+            return (
+              <NavbarLink link={navbarLink}/>
+              )
+          })}
+      </div>
+      
+    )
+  }
 }
-
-function NavbarLink({ name }) {
-  return (
-     <span 
-       onClick={()=>{
-       alert(name);
-     }}
-     className={`navbar-link navbar-${name}`} > 
-        {
-          name.toUpperCase()
-        }
-      </span>
-  )
-}
-
-
 
 export default App;

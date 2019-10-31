@@ -1,13 +1,16 @@
-import React from "react";
+import React from 'react' 
 
-function NavbarLink({ link }) {
-  let classNameForLink = link.toLowerCase().replace(/\s/g, "");
-  let linkUpperCase = link.toUpperCase();
-  return (
-    <div className={`navbar-link navbar-${classNameForLink}`}>
-      {linkUpperCase}
+
+function NavbarLink( {link} ){
+
+  return(
+    <div className={`navbar-link navbar-${link.toLowerCase().replace(/\s/g, "")}`}>
+      {link}
     </div>
-  );
+  )
 }
 
+
+
 export default NavbarLink;
+

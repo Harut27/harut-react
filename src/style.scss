@@ -1,9 +1,24 @@
+nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(53, 52, 52);
+    
+}
+
 .navbar {
     display: flex;
 }
 
 .navbar-link {
-    color: blue;
-    margin: 0 10px;
+    color: rgb(177, 177, 177);
+    margin: 0 15px;
     font-size: 20px;
 }
+
+.logo  {
+    width: 150px;
+}
+
+

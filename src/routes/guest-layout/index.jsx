@@ -4,14 +4,15 @@ import { Route } from "react-router";
 class GuestLayout extends Component {
   render() {
     const { component: ChildComponent, ...rest } = this.props;
+
+    // console.log(ChildComponent)
     return (
       <div>
         <div>header</div>
-        <Route
+        <Route 
           {...rest}
-          render={match => {
-            // console.log(matchProps);
-            return <ChildComponent {...match} />;
+           render={matchProps => {
+            return <ChildComponent {...matchProps} />;
             // matchProps -match@ popoxakana u poxancuma a componentin urli infon,
           }}
         />

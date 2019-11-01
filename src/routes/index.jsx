@@ -8,8 +8,9 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
+        <GuestLayout  exact path="/" component={Input} />
         <GuestLayout exact path="/posts" component={Input} />
-        <GuestLayout path="/post/:id" component={ItemPage} />
+        <GuestLayout exact path="/post/:id" component={ItemPage} />
       </Switch>
     </Router>
   );

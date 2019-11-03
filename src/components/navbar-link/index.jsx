@@ -13,7 +13,6 @@ const NavbarLink = props => {
         )
       })
     }
-    
     </div>
   );
 };

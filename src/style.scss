@@ -6,11 +6,16 @@
     background: rgb(53, 52, 52);
 }
 
-.navbar-link {
+a {
+    text-decoration: none;
     color: rgb(177, 177, 177);
     margin: 0 15px;
-    font-size: 20px;
+    font-size: 25px;
 }
+
+// a {
+//     color: azure;
+// }
 
 .sidbar-column {
     display: flex;

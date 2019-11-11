@@ -11,7 +11,9 @@ const NavbarLink = props => {
       navbarManu.map((navbarMenuLink,index)=>{
         return(
           <div className={`navbar-link navbar-${navbarMenuLink.toLowerCase()}`} key={index}>
-            <Link to={`/${navbarMenuLink.toLowerCase()}`}>{navbarMenuLink}</Link>
+            <Link to={`/${navbarMenuLink.toLowerCase()}`}>
+              {navbarMenuLink}
+            </Link>
           </div>
         )
       })

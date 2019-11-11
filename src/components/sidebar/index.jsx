@@ -9,7 +9,7 @@ const SideBar = props => {
                 {
                     sidebarMenu.map((sitebarLink,index)=>{
                         return(
-                            <div className={`sitebar-link sitebar-${sitebarLink.replace(/\s/g, '')}`}>{sitebarLink.toUpperCase()}</div>
+                            <div className={`sitebar-link sitebar-${sitebarLink.replace(/\s/g, '')}`} key={index}>{sitebarLink.toUpperCase()}</div>
                         )
                     })
                 }

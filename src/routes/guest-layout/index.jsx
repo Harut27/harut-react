@@ -11,7 +11,7 @@ class GuestLayout extends Component {
     return (
       <div>
         <NavbarLink/>
-        <section>
+        <div className="content">
           <div className="left-container">
             <SideBar/>
           </div>
@@ -24,7 +24,7 @@ class GuestLayout extends Component {
             />
           </div>
 
-        </section>
+        </div>
         <Footer/>
       </div>
     );

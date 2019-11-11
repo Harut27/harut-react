@@ -72,3 +72,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 <!--  CLASS COMPONENT -->
 <!--  FUNCTIONAL COMPONENT -->
 <!-- STATE , PROPS -->
+<!-- ...................................... -->
+<!-- es-lint   --- dzox  -->
+<!-- crud gaxapar -->

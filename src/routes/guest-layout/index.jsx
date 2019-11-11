@@ -10,22 +10,21 @@ class GuestLayout extends Component {
 
     return (
       <div>
-        <NavbarLink/>
+        <NavbarLink />
         <div className="content">
           <div className="left-container">
-            <SideBar/>
+            <SideBar />
           </div>
           <div className="right-container">
-            <Route 
+            <Route
               {...rest}
               render={matchProps => {
                 return <ChildComponent {...matchProps} />;
               }}
             />
           </div>
-
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

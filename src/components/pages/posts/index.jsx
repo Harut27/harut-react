@@ -2,65 +2,41 @@ import React, { Component } from "react";
 import axios from "axios";
 import _ from "lodash";
 
-
-
 class Posts extends Component {
   constructor(props){
     super(props)
     this.state = {
-      count: 0
+      users : [],
+
     }
   }
 
   componentDidMount(){
     axios.get("https://jsonplaceholder.typicode.com/posts")
     .then(res => {
-
       let users = res.data;
-        console.log(users)
-
-        users.forEach((user,id) => {
-
-          console.log(user)
-          return(
-            <div className="user-cart">
-              <span>
-                {user.ttle}
-              </span>
-              <span>
-                User {user.id}
-              </span>
-              <span>
-                {user.body}
-              </span>
-
-            </div>
-          )
+      this.setState({users})
         });
-    });
-    
-  }
-
-  handleCountChanage = ()=>{
-    this.setState({
-      count: this.state.count + 1
-    })
   }
 
   render(){
 
-    const {count} = this.state; 
+    const {users} = this.state;
+  
+
+    console.log(users)
     return(
       <div>
-        <span>{count}</span>
-        <button onClick={this.handleCountChanage}>Click</button>
+        {users.map((user, id) => {
+        return (
+          <div className='user-cart' key={id}>
+              <span>1</span>
+          </div>
+        );
+      })}
       </div>
     )
-  }
-
-
-
-}
+}};
 
 
 export default Posts;

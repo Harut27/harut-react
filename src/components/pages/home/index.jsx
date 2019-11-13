@@ -29,7 +29,7 @@ class Home extends Component {
         {
           userInfos.map((userInfo,id)=>{
             return (
-              <div className="userInfoCart" kay={id}>
+              <div className="userInfoCart" key={id}>
                 <span>
                   <strong>User Name:</strong>  {userInfo.name}
                 </span>

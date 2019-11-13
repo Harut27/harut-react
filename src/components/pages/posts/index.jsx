@@ -2,41 +2,60 @@ import React, { Component } from "react";
 import axios from "axios";
 import _ from "lodash";
 
+
 class Posts extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      users : [],
+    constructor(props) {
+        super(props)
+        this.state = {
+            users: [],
 
+        }
     }
-  }
 
-  componentDidMount(){
-    axios.get("https://jsonplaceholder.typicode.com/posts")
-    .then(res => {
-      let users = res.data;
-      this.setState({users})
-        });
-  }
+    componentDidMount() {
+        this.axiosCancelSource = axios.CancelToken.source();
+        axios.get(
+            "https://jsonplaceholder.typicode.com/posts",
+            { cancelToken: this.axiosCancelSource.token }
+        )
+            .then(res => {
+                let users = res.data;
+                this.setState({ users })
+            });
+    }
 
-  render(){
+    componentWillUnmount() {
+        this.axiosCancelSource.cancel('Component unmounted.')
+    }
 
-    const {users} = this.state;
-  
+    render() {
 
-    console.log(users)
-    return(
-      <div>
-        {users.map((user, id) => {
+        const { users } = this.state;
+
         return (
-          <div className='user-cart' key={id}>
-              <span>1</span>
-          </div>
-        );
-      })}
-      </div>
-    )
-}};
+            <div className="user-carts">
+                <span className="total-user-info">
+                    Users Count: {users.length}
+                </span>
+                {users.map((user, id) => {
+                    return (
+                        <div className='user-cart' key={id}>
+                            <span className="user-id">
+                                User id {user.id}
+                            </span>
+                            <span className="user-title">
+                                User Title - {user.title}
+                            </span>
+                            <span className="user-body">
+                                User Body - {user.body}
+                            </span>
+                        </div>
+                    );
+                })}
+            </div>
+        )
+    }
+};
 
 
 export default Posts;
@@ -93,7 +112,7 @@ export default Posts;
 //   }
 
 //   // LIFECYCLES
-    
+
 //   componentDidMount() {               //  WORKS WHEN COMPONENT IS READY TO USE
 //     console.log("component is mounted");
 //     axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {

@@ -19,7 +19,7 @@ body {
 a {
     text-decoration: none;
     color: $lightgray;
-;
+    ;
     margin-top: 20px;
 
     font-size: 25px;
@@ -51,7 +51,7 @@ footer {
     background: $darkgray;
 }
 
-.sitebarColumn{
+.sitebarColumn {
     width: 250px;
 }
 
@@ -61,38 +61,11 @@ footer {
 }
 
 .right-container {
+    width: 100%;
     margin: 50px;
     box-sizing: border-box;
 }
 
-
-.user-carts{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.user-cart {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 10px;
-    border: 1px solid $darkgray;
-    width: 250px;
-    background: $lightgray;
-}
-
-.user-id {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    margin: 5px;
-    color: $darkgray;
-}
-
-.user-title,
-.user-body {
-    margin: 15px;
-}
 
 .total-user-info {
     height: 100px;
@@ -121,12 +94,12 @@ footer {
     width: 50vw;
 }
 
-.userInfoContainer{
+.userInfoContainer {
     display: flex;
     flex-wrap: wrap;
 }
 
-.userInfoCart{
+.userInfoCart {
     height: 200px;
     width: 350px;
     display: flex;

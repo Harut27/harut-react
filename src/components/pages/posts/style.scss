@@ -1,0 +1,37 @@
+$darkgray: rgb(58, 57, 57);
+$lightgray: rgb(212, 209, 209);
+
+
+
+.user-carts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 10px;
+    border: 1px solid $darkgray;
+    width: 250px;
+    background: $lightgray;
+}
+
+.post-id {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+    color: $darkgray;
+}
+
+.user-id {
+    color: $darkgray;
+    text-align: center;
+}
+
+.user-title,
+.user-body {
+    margin: 15px;
+}

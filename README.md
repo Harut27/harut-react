@@ -75,3 +75,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 <!-- ...................................... -->
 <!-- es-lint   --- dzox  -->
 <!-- crud gaxapar -->
+
+<!-- ................... -->
+
+<!-- Live cicls in functional components -->

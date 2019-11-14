@@ -1,13 +1,13 @@
 import React,{Component} from "react";
 import Axios from "axios";
-
-
+import Loader from "../../loader"
 
 class Home extends Component {
   constructor(props){
     super(props)
     this.state = {
-      userInfos: []
+      userInfos: [],
+      loading: true
     }
   }
 
@@ -17,14 +17,30 @@ class Home extends Component {
     Axios.get("https://jsonplaceholder.typicode.com/users")
     .then(res=>{
         let userInfos = res.data;
-        this.setState({userInfos})
+        this.setState({userInfos, loading: false})
     })
+    .catch(err=>{
+      this.setState({
+        loading: false
+      });
+    })
+    
   }
-
   render(){
+    const {loading} = this.state;
     const { userInfos } = this.state;
+
+    if (loading) return(<Loader/>);
+    if (!userInfos.length) return (
+      <div>
+        <span>No Users Found </span>
+      </div>
+    )
+
+    // console.log(users)
     
     return(
+
       <div className="userInfoContainer">
         {
           userInfos.map((userInfo,id)=>{
@@ -57,8 +73,5 @@ class Home extends Component {
 
 
 
-// const Home = props => {
-//   return <section>HOME</section>;
-// };
 
 export default Home;

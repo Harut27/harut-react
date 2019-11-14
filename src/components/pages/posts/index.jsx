@@ -22,7 +22,6 @@ class Posts extends Component {
         cancelToken: this.axiosCancelSource.token
       })
       .then(res => {
-        console.log(res, "res");
         let users = res.data;
         this.setState({ users, loading: false });
       })
@@ -58,7 +57,7 @@ class Posts extends Component {
               <span className="user-title">User Title - {user.title}</span>
               <span className="user-body">User Body - {user.body}</span>
               <span className="user-id">
-                <Link className="user-id" to={`user/${user.userId}/posts`}>
+                <Link className="user-id" to={`user/${user.userId}/info`}>
                   User Number #{user.userId}
                 </Link>
               </span>
@@ -71,6 +70,19 @@ class Posts extends Component {
 }
 
 export default Posts;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // class Posts extends Component {
 //   constructor(props) {

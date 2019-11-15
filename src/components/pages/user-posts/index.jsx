@@ -16,7 +16,6 @@ class UserPosts extends Component {
   componentDidMount() {
 
     const { id } = this.props.match.params;
-
     Axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then(res => {
         let userInfo = res.data;
@@ -88,11 +87,3 @@ export default UserPosts;
 
 
 
-
-
-// export const getAllUsers = () => {
-//   //axios
-// };
-// export const getUserPosts = (userID) => {
-//   //axios
-// };

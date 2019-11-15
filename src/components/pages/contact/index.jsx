@@ -2,7 +2,8 @@ import React from "react";
 import imgContact from "../../../img/Contact-Us-PNG.png"
 
 
-const Contact = ()=>{
+const Contact = (props)=>{
+    console.log(props)
     return(
         <div className="contact-page">
             <span>Mobile Number: +374-98-91-67-78</span>

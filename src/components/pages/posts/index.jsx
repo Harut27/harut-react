@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -6,83 +6,74 @@ import Loader from "../../loader";
 
 import "./style.scss";
 
-class Posts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: [],
-      loading: true
-    };
-  }
-
-  componentDidMount() {
-    this.axiosCancelSource = axios.CancelToken.source();
+const Posts = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let axiosCancelSource = null;
+  const selectedItem = useRef(null);
+  useEffect(() => {
+    axiosCancelSource = axios.CancelToken.source();
     axios
       .get("https://jsonplaceholder.typicode.com/posts", {
-        cancelToken: this.axiosCancelSource.token
+        cancelToken: axiosCancelSource.token
       })
       .then(res => {
         let users = res.data;
-        this.setState({ users, loading: false });
+        setUsers(users);
+        setLoading(false);
       })
       .catch(err => {
-        this.setState({
-          loading: false
-        });
+        setLoading(false);
       });
-  }
+    return () => {
+      axiosCancelSource.cancel("Component unmounted.");
+    };
+  }, []);
 
-  componentWillUnmount() {
-    this.axiosCancelSource.cancel("Component unmounted.");
-  }
-
-  render() {
-    const { users } = this.state;
-    const { loading } = this.state;
-
-    if (loading) return <Loader />;
-    if (!users.length)
-      return (
-        <div>
-          <span>No users found</span>
-        </div>
-      );
+  const findItem = () => {
+    if (selectedItem.current) {
+      console.log(selectedItem);
+      selectedItem.current.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+      });
+    }
+  };
+  if (loading) return <Loader />;
+  if (!users.length)
     return (
-      <div className="user-carts">
-        <span className="total-user-info">Users Count: {users.length}</span>
-        {users.map((user, id) => {
-          return (
-            <div className="user-cart" key={id}>
-              <span className="post-id">Post id {user.id}</span>
-              <span className="user-title">User Title - {user.title}</span>
-              <span className="user-body">User Body - {user.body}</span>
-              <span className="user-id">
-                <Link className="user-id" to={`user/${user.userId}/info`}>
-                  User Number #{user.userId}
-                </Link>
-              </span>
-            </div>
-          );
-        })}
+      <div>
+        <span>No users found</span>
       </div>
     );
-  }
-}
+  return (
+    <div className="user-carts">
+      <span className="total-user-info" onClick={findItem}>
+        Users Count: {users.length}
+      </span>
+      {users.map((user, id) => {
+        return (
+          <div
+            ref={user.id == 15 ? selectedItem : null}
+            className="user-cart"
+            key={id}
+          >
+            <span className="post-id">Post id {user.id}</span>
+            <span className="user-title">User Title - {user.title}</span>
+            <span className="user-body">User Body - {user.body}</span>
+            <span className="user-id">
+              <Link className="user-id" to={`user/${user.userId}/info`}>
+                User Number #{user.userId}
+              </Link>
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Posts;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // class Posts extends Component {
 //   constructor(props) {

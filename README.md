@@ -79,3 +79,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 <!-- ................... -->
 
 <!-- Live cicls in functional components -->
+
+<!-- .............. -->
+
+ <!-- context API -->

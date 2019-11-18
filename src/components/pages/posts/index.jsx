@@ -7,10 +7,13 @@ import Loader from "../../loader";
 import "./style.scss";
 
 const Posts = () => {
+
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+
   let axiosCancelSource = null;
   const selectedItem = useRef(null);
+
   useEffect(() => {
     axiosCancelSource = axios.CancelToken.source();
     axios
@@ -30,17 +33,24 @@ const Posts = () => {
     };
   }, []);
 
+//gtnel ejum konkret ban iradardzutyan depqum 
+
   const findItem = () => {
     if (selectedItem.current) {
-      console.log(selectedItem);
       selectedItem.current.scrollIntoView({
         block: "center",
         behavior: "smooth"
       });
     }
   };
+
+
+
+
+
   if (loading) return <Loader />;
   if (!users.length)
+
     return (
       <div>
         <span>No users found</span>
@@ -75,6 +85,37 @@ const Posts = () => {
 
 export default Posts;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ......................................................................................................
 // class Posts extends Component {
 //   constructor(props) {
 //     super(props);

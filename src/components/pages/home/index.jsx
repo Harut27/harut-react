@@ -1,34 +1,27 @@
-import React,{Component} from "react";
+import React,{ useState, useEffect } from "react";
 import Axios from "axios";
 import Loader from "../../loader"
 
-class Home extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      userInfos: [],
-      loading: true
-    }
-  }
+const Home = ()=>  {
 
 
+const [userInfos, setUserInfos] = useState([])
+const [loading, setLoading] = useState(true)
 
-  componentDidMount(){
+
+useEffect(()=>{
+
     Axios.get("https://jsonplaceholder.typicode.com/users")
     .then(res=>{
         let userInfos = res.data;
-        this.setState({userInfos, loading: false})
+        setUserInfos(userInfos)
+        setLoading(false)
     })
     .catch(err=>{
-      this.setState({
-        loading: false
-      });
+      setLoading(false)
     })
-    
-  }
-  render(){
-    const {loading} = this.state;
-    const { userInfos } = this.state;
+  },[])
+ 
 
     if (loading) return(<Loader/>);
     if (!userInfos.length) return (
@@ -37,7 +30,6 @@ class Home extends Component {
       </div>
     )
 
-    // console.log(users)
     
     return(
 
@@ -67,7 +59,7 @@ class Home extends Component {
         }
       </div>
     )
-  }
+  
 
 }
 

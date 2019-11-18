@@ -31,11 +31,12 @@ const UserPosts = ({ match }) => {
 
   useEffect(() => {
     if (userInfoContainer.current) {
-      console.log(userInfoContainer.current.getBoundingClientRect());
+      console.log(userInfoContainer.current.getBoundingClientRect()); // veradardznum e tari chaps@, tex@ ev ayl info
     }
   });
   function getSinglePost() {
     const { id } = match.params;
+
     Axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then(res => {
         let userInfo = res.data;

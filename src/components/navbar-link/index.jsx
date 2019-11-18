@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavbarLink = props => {
-  const navbarManu = ["Home", "Posts", "Contact"];
+  const navbarManu = ["Home", "Posts", "Contact", "Form"];
 
   return (
     <div className="navbar">
